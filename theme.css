@@ -170,9 +170,19 @@ div.folders,
 aside,
 .sidebar-left {
 	background-color: #000 !important;
+	background: #000 !important;
 	border-right: none !important;
 	padding: 2rem 1rem 2rem 0.5rem !important;
 	position: relative !important;
+}
+
+/* Force black background on all sidebar containers */
+.sidebar-left,
+.sidebar-left > *,
+nav.sidebar-left,
+aside.sidebar-left {
+	background-color: #000 !important;
+	background: #000 !important;
 }
 
 /* Top decorative element - positioned to not overlap content */
@@ -212,9 +222,19 @@ aside::after,
 /* Right sidebar decorative elements */
 .sidebar-right {
 	background-color: #000 !important;
+	background: #000 !important;
 	border-left: none !important;
 	padding: 2rem 0.5rem 2rem 1rem !important;
 	position: relative;
+}
+
+/* Force black background on all right sidebar containers */
+.sidebar-right,
+.sidebar-right > *,
+nav.sidebar-right,
+aside.sidebar-right {
+	background-color: #000 !important;
+	background: #000 !important;
 }
 
 .sidebar-right::before {
