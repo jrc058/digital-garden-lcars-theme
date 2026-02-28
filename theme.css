@@ -169,74 +169,78 @@ div.folders,
 .filetree-sidebar,
 aside,
 .sidebar-left {
-	background-color: var(--color-background) !important;
+	background-color: #000 !important;
 	border-right: none !important;
-	padding: 2rem 1rem !important;
+	padding: 2rem 1rem 2rem 0.5rem !important;
 	position: relative !important;
 }
 
-/* Top decorative element */
+/* Top decorative element - positioned to not overlap content */
 div.folders::before,
 .filetree-sidebar::before,
 aside::before,
 .sidebar-left::before {
 	content: '';
 	position: absolute;
-	top: 0;
-	right: 0;
-	width: 60px;
-	height: 140px;
+	top: -10px;
+	right: -10px;
+	width: 50px;
+	height: 120px;
 	background: var(--color-primary);
-	border-radius: 0 0 0 60px;
-	z-index: 0;
+	border-radius: 0 0 0 50px;
+	z-index: -1;
+	pointer-events: none;
 }
 
-/* Bottom decorative element */
+/* Bottom decorative element - positioned to not overlap content */
 div.folders::after,
 .filetree-sidebar::after,
 aside::after,
 .sidebar-left::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 60px;
-	height: 200px;
+	bottom: -10px;
+	right: -10px;
+	width: 50px;
+	height: 180px;
 	background: var(--color-secondary-hover);
-	border-radius: 60px 0 0 0;
-	z-index: 0;
+	border-radius: 50px 0 0 0;
+	z-index: -1;
+	pointer-events: none;
 }
 
 /* Right sidebar decorative elements */
 .sidebar-right {
-	background-color: var(--color-background) !important;
+	background-color: #000 !important;
 	border-left: none !important;
-	padding: 2rem 1rem !important;
+	padding: 2rem 0.5rem 2rem 1rem !important;
 	position: relative;
 }
 
 .sidebar-right::before {
 	content: '';
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 60px;
-	height: 140px;
+	top: -10px;
+	left: -10px;
+	width: 50px;
+	height: 120px;
 	background: var(--color-quaternary);
-	border-radius: 0 0 60px 0;
-	z-index: 0;
+	border-radius: 0 0 50px 0;
+	z-index: -1;
+	pointer-events: none;
 }
 
 .sidebar-right::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 60px;
-	height: 200px;
+	bottom: -10px;
+	left: -10px;
+	width: 50px;
+	height: 180px;
 	background: var(--color-tertiary);
-	border-radius: 0 60px 0 0;
-	z-index: 0;
+	border-radius: 0 50px 0 0;
+	z-index: -1;
+	pointer-events: none;
 }
 
 /* ========================================================
@@ -253,48 +257,65 @@ div.folders a.filename,
 	text-transform: uppercase !important;
 	font-weight: var(--font-bold) !important;
 	padding: calc(var(--gap) * 1.5) var(--gap) calc(var(--gap) / 4) var(--gap) !important;
-	margin: calc(var(--gap) / 4) 0 !important;
+	margin: calc(var(--gap) / 4) 0.5rem !important;
 	border-radius: calc(var(--gap) * 1.5) !important;
 	transition: all var(--transition) !important;
 	position: relative !important;
-	z-index: 1 !important;
+	z-index: 10 !important;
 	display: block !important;
 	text-align: right !important;
 	border: none !important;
 	box-shadow: none !important;
 	font-size: 1.4rem !important;
 	letter-spacing: 0.05rem !important;
+	overflow: visible !important;
+}
+
+/* Add decorative left accent bar to each item */
+div.folders div.folder::before,
+div.folders a.filename::before,
+.folder::before,
+.filename::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 8px;
+	background: var(--color-background);
+	border-radius: calc(var(--gap) * 1.5) 0 0 calc(var(--gap) * 1.5);
+	z-index: 1;
 }
 
 /* Alternate colors for visual interest - matching Pi-hole LCARS */
 div.folders div.folder:nth-child(6n+1),
 div.folders a.filename:nth-child(6n+1) {
-	background-color: var(--color-quaternary) !important;
+	background: linear-gradient(135deg, var(--color-quaternary) 0%, var(--lcars-anakiwa) 100%) !important;
 }
 
 div.folders div.folder:nth-child(6n+2),
 div.folders a.filename:nth-child(6n+2) {
-	background-color: var(--color-primary) !important;
+	background: linear-gradient(135deg, var(--color-primary) 0%, var(--lcars-golden-tanoi) 100%) !important;
 }
 
 div.folders div.folder:nth-child(6n+3),
 div.folders a.filename:nth-child(6n+3) {
-	background-color: var(--color-secondary-hover) !important;
+	background: linear-gradient(135deg, var(--color-secondary-hover) 0%, var(--lcars-lilac) 100%) !important;
 }
 
 div.folders div.folder:nth-child(6n+4),
 div.folders a.filename:nth-child(6n+4) {
-	background-color: var(--color-tertiary) !important;
+	background: linear-gradient(135deg, var(--color-tertiary) 0%, var(--lcars-bahama-blue) 100%) !important;
 }
 
 div.folders div.folder:nth-child(6n+5),
 div.folders a.filename:nth-child(6n+5) {
-	background-color: var(--color-quinternary) !important;
+	background: linear-gradient(135deg, var(--color-quinternary) 0%, var(--lcars-mariner) 100%) !important;
 }
 
 div.folders div.folder:nth-child(6n+6),
 div.folders a.filename:nth-child(6n+6) {
-	background-color: var(--lcars-golden-tanoi) !important;
+	background: linear-gradient(135deg, var(--lcars-golden-tanoi) 0%, var(--lcars-tanoi) 100%) !important;
 }
 
 div.folders div.folder:hover,
